@@ -1,0 +1,627 @@
+/* ==========================================================================
+   Pitch Improver Container
+   ========================================================================== */
+.pitch-improver-container {
+  padding: 2rem;
+}
+
+/* ==========================================================================
+   Statistics Container and Items (Preserved as requested)
+   ========================================================================== */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  gap: 1rem;
+}
+
+.stat-item {
+  position: relative;
+  text-align: center;
+  flex: 1;
+  min-width: 160px;
+  padding: 1.25rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Background gradients for stats */
+.stat-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-item:hover .stat-background {
+  opacity: 0.1;
+}
+
+.stat-item:nth-child(1) .stat-background { background: linear-gradient(135deg, #FF6B6B, #FFE66D); }
+.stat-item:nth-child(2) .stat-background { background: linear-gradient(135deg, #4ECDC4, #556270); }
+.stat-item:nth-child(3) .stat-background { background: linear-gradient(135deg, #C7F464, #4ECDC4); }
+.stat-item:nth-child(4) .stat-background { background: linear-gradient(135deg, #556270, #FF6B6B); }
+.stat-item:nth-child(5) .stat-background { background: linear-gradient(135deg, #FFE66D, #4ECDC4); }
+
+/* ==========================================================================
+   Settings Panels
+   ========================================================================== */
+.settings-panel {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Form Groups and Inputs
+   ========================================================================== */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.input-label i {
+  margin-right: 0.75rem;
+  color: #3498db;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Text Area and Analysis Section
+   ========================================================================== */
+#text_input_pitch_improver {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   Reading Speed Slider
+   ========================================================================== */
+#reading_speed {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+#reading_speed-label {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Optional Fields Section
+   ========================================================================== */
+.optional-fields {
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-left: 4px solid var(--accent-primary);
+}
+
+/* ==========================================================================
+   Analysis Results Container
+   ========================================================================== */
+.analysis-results {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: white;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==========================================================================
+   Analyze Button
+   ========================================================================== */
+#gpt_update_pitch_improver_button {
+  font-size: x-large;
+  background: ghostwhite;
+  color: black;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1vw;
+}
+
+#gpt_update_pitch_improver_button:hover {
+  background: lightgray;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Response Containers
+   ========================================================================== */
+#gpt_response_pitch_improver,
+#prompt_checker {
+  background-color: #1f1f1f;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   Recap Section
+   ========================================================================== */
+#recap_prompt {
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  .pitch-improver-container {
+    padding: 1rem;
+  }
+
+  .settings-panel {
+    padding: 1.5rem;
+  }
+
+  .analysis-results {
+    padding: 1.5rem;
+  }
+
+  #text_input_pitch_improver {
+    min-height: 150px;
+  }
+
+  .stats-container {
+    padding: 1rem;
+  }
+
+  .stat-item {
+    min-width: 140px;
+  }
+}
+
+/* ==========================================================================
+   Aesthetic Elements
+   ========================================================================== */
+.hresthetics {
+  border: 0;
+  height: 5px;
+  background: linear-gradient(to right, #8e44ad, #3498db);
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
+   Avatar Grid Enhancement
+   ========================================================================== */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.avatar-item {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatar-item:hover {
+  transform: translateY(-5px);
+}
+
+.avatar-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.avatar-circle i {
+  font-size: 1.5rem;
+  color: #ecf0f1;
+  transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.avatar-item:hover .avatar-circle {
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+/* Selected state */
+.avatar-item.selected .avatar-circle {
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
+}
+
+.avatar-item.selected .avatar-circle i {
+  transform: scale(1.1);
+}
+
+.avatar-label {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.avatar-item:hover .avatar-label {
+  opacity: 1;
+  transform: translateY(2px);
+}
+
+.avatar-item.selected .avatar-label {
+  color: #2ecc71;
+  opacity: 1;
+}
+
+/* Individual role colors */
+.avatar-item[data-role="entry_level"] .avatar-circle { background: linear-gradient(145deg, #3498db, #2980b9); }
+.avatar-item[data-role="manager"] .avatar-circle { background: linear-gradient(145deg, #e67e22, #d35400); }
+.avatar-item[data-role="senior_manager"] .avatar-circle { background: linear-gradient(145deg, #f1c40f, #f39c12); }
+.avatar-item[data-role="director"] .avatar-circle { background: linear-gradient(145deg, #1abc9c, #16a085); }
+.avatar-item[data-role="ceo"] .avatar-circle { background: linear-gradient(145deg, #e74c3c, #c0392b); }
+
+/* Level Selector Enhancement */
+.level-selector {
+  margin-top: 2rem;
+}
+
+.level-option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.level-option:hover {
+  transform: translateX(5px);
+  background: linear-gradient(145deg, #3498db, #2980b9);
+}
+
+.level-option.selected {
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+}
+
+.level-option input[type="radio"] {
+  margin-right: 1rem;
+}
+
+.level-option label {
+  color: #ecf0f1;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Context Selector Enhancement */
+.context-select-wrapper {
+  position: initial;
+}
+
+.context-select {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ecf0f1;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.context-select:hover,
+.context-select:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.context-select-wrapper::after {
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ecf0f1;
+  pointer-events: none;
+}
+
+/* Required Fields Panel */
+.required-fields-panel {
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.required-fields-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.required-fields-header i {
+  color: #e74c3c;
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.required-fields-header span {
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Input Field Enhancement */
+.recipient-input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  border: none;
+  color: #ecf0f1;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.recipient-input:focus {
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  outline: none;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+
+/* ==========================================================================
+   Expectations Level Section
+   ========================================================================== */
+.expectations-level {
+  margin: 2rem 0;
+}
+
+.expectations-level-title {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.expectations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Radio Card Styling */
+.radio-card {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.radio-card input[type="radio"] {
+  display: none;
+}
+
+.radio-card label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon for each level */
+.radio-card label::before {
+  content: '';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.radio-card:nth-child(1) label::before { content: '\f005'; /* star */ }
+.radio-card:nth-child(2) label::before { content: '\f005\f005'; /* two stars */ }
+.radio-card:nth-child(3) label::before { content: '\f005\f005\f005'; /* three stars */ }
+
+/* Hover Effects */
+.radio-card label:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.2);
+}
+
+/* Selected State */
+.radio-card input[type="radio"]:checked + label {
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+}
+
+.radio-card input[type="radio"]:checked + label::before {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* Text Styling */
+.expectation-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.expectation-description {
+  font-size: 0.75rem;
+  color: rgba(226, 232, 240, 0.7);
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+/* Animation for selection */
+@keyframes selected {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.radio-card input[type="radio"]:checked + label {
+  animation: selected 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .expectations-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .radio-card label {
+    min-height: 100px;
+    padding: 1rem;
+  }
+}
+
+/* Progress indicator */
+.expectation-progress {
+  height: 4px;
+  background: rgba(226, 232, 240, 0.1);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.expectation-progress-bar {
+  height: 100%;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.radio-card:nth-child(1) .expectation-progress-bar { width: 33%; }
+.radio-card:nth-child(2) .expectation-progress-bar { width: 66%; }
+.radio-card:nth-child(3) .expectation-progress-bar { width: 100%; }
+
+
+
+/* ==========================================================================
+   Required Fields Panel
+   ========================================================================== */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .required-fields-panel {
+    padding: 1rem;
+  }
+
+  .input-label {
+    font-size: 0.9rem;
+  }
+
+  .required-fields-header {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Placeholder Styling */
+.pitch-recipient-input::placeholder {
+  color: rgba(236, 240, 241, 0.5);
+}
+
+/* Focus States */
+.context-select:focus,
+.pitch-recipient-input:focus {
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+
